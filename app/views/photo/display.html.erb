@@ -1,0 +1,7 @@
+<H1>user.first_name </H1> <p>information</p>
+
+<%for photo in @photos_set %>
+<br>
+<%= file_name photo.file_name%>
+<%= comments photo.comments%>
+<%end %>

@@ -1,0 +1,20 @@
+
+<h2>Photosite Users information</h2>
+<h3>There are <%= User.count('id') %> users</h3><br>
+
+
+<TABLE BORDER=1 BORDERCOLOR=red>
+  <tr>
+    <td>User-id</td>
+    <td>Frist Name</td>
+    <td>Last Name</td>
+  </tr>
+    <% @users_set.each do |user| %>
+    <tr>
+      <td> <%= user.id %></td>
+      <td> <%= link_to user.first_name, {:action=>"index", :controller=>"photo", :id=> user.id} %></td>
+      <td><%= user.last_name %></td>
+    </tr>
+  <% end %>
+</TABLE>
+

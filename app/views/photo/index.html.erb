@@ -1,0 +1,20 @@
+<html>
+<h2>Photos and Comments</h2>
+<div>
+  <% @photos_set.each do |photo| %>
+    <h3>Photo:</h3>
+    <%= image_tag photo.file_name %>
+    <i>Created on:</i> <%= photo.date_time %><br>
+    <h3>Comments:</h3>
+    <% @comments_set = photo.comments %>
+    <% @comments_set.each do |comment| %>
+      <ul><li><%= comment.comment_text %>
+        &nbsp <i>Posted by: </i><b>
+        <%= link_to comment.user.first_name, {:action=>"index", :controller=>"photo", :id=> comment.user.id} %>
+      </b>&nbsp on &nbsp&nbsp<%= comment.date_time %><br><br></li></ul>
+
+
+<% end %>
+  <% end %>
+</div>
+</html>
